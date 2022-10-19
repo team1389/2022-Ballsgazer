@@ -34,7 +34,7 @@ public class Shooter extends SubsystemBase {
     private final double kI = 0;
     private final double kD = 0;
 
-    public double targetRPM = 5000;
+    public double targetRPM;
 
     private PIDController flywheelPID;
 

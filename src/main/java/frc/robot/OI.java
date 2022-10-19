@@ -50,7 +50,7 @@ public class OI {
         //Robot.shooter.setDefaultCommand(new Shoot());
         //Robot.intake.setDefaultCommand(new RunIntake());
         // Robot.climber.setDefaultCommand(new WinchClimber("right", false));
-        Robot.shooter.setDefaultCommand(new TurretTracking());
+        //Robot.shooter.setDefaultCommand(new TurretTracking());
         
         //runIndexer = new RunIndexer();
         //runIndexer.schedule();
@@ -115,7 +115,7 @@ public class OI {
         manipStartBtn = new JoystickButton(manipController, XboxController.Button.kStart.value);
         manipLTrigger= new JoystickButton(manipController, XboxController.Axis.kLeftTrigger.value);
         manipRTrigger = new JoystickButton(manipController, XboxController.Axis.kRightTrigger.value);
-        initManualClimber();
+        //initManualClimber();
     }
     
     public double getDriverLeftX() {
