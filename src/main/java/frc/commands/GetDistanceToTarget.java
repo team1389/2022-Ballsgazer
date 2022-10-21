@@ -46,6 +46,9 @@ public class GetDistanceToTarget extends CommandBase {
             // Calculate the targetRPM based off of the distance
             targetRPM = 0.183455*Math.pow(Math.E, 0.0689839*distanceToTarget)+4304.84;
 
+            // Scale based on indexer deflection
+            targetRPM = targetRPM * getIndexerDeflection();
+
             // Limit it to the shooter's actual range
             targetRPM = Math.min(targetRPM, 5840);
         }
@@ -56,6 +59,12 @@ public class GetDistanceToTarget extends CommandBase {
         SmartDashboard.putNumber("Distance To Target", distanceToTarget);
         Robot.shooter.targetRPM = targetRPM;
         SmartDashboard.putNumber("Target_RPM", targetRPM);
+    }
+
+    public double getIndexerDeflection() {
+        double turretPosition = Robot.shooter.getTurretPosition();
+
+        return 1;
     }
 
     @Override

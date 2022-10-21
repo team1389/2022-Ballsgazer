@@ -9,7 +9,7 @@ import frc.commands.RunIndexer;
 import frc.commands.RunIntake;
 import frc.commands.Shoot;
 import frc.commands.ShootWithSensors;
-import frc.commands.TurnTurret;
+import frc.commands.TurnTurretForTime;
 import frc.commands.TurretTracking;
 import frc.robot.Robot;
 
@@ -23,7 +23,7 @@ public class TwoBallAuto extends SequentialCommandGroup{
         addCommands(
             new InstantCommand(() -> Robot.intake.extendIntake()),
         
-            new ParallelCommandGroup(new RunIntake(3.5), new DriveTime(1.4, 0, 0.3, 0), new TurnTurret(1.5)),
+            new ParallelCommandGroup(new RunIntake(3.5), new DriveTime(1.4, 0, 0.3, 0), new TurnTurretForTime(1.5)),
             new ParallelCommandGroup(new TurretTracking().withTimeout(1), 
             new DriveTime(0.7, 0, -0.3, 0)),
             new Shoot(),

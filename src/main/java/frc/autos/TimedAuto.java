@@ -11,7 +11,7 @@ import frc.commands.DriveTime;
 import frc.commands.RunIntake;
 import frc.commands.Shoot;
 import frc.commands.ShootWithSensors;
-import frc.commands.TurnTurret;
+import frc.commands.TurnTurretForTime;
 import frc.robot.Robot;
 
 // NOTE:  Consider using this command inline, rather than writing a subclass.  For more
@@ -26,7 +26,7 @@ public class TimedAuto extends SequentialCommandGroup {
             new InstantCommand(() -> Robot.intake.extendIntake()),
             // new InstantCommand(() -> Robot.climber.extendLeftPiston()),
             // new InstantCommand(() -> Robot.climber.extendRightPiston()),
-            new ParallelCommandGroup(new RunIntake(2.2), new DriveTime(1.483666, 0, 0.3, 0), new TurnTurret(1.5)),
+            new ParallelCommandGroup(new RunIntake(2.2), new DriveTime(1.483666, 0, 0.3, 0), new TurnTurretForTime(1.5)),
             new DriveTime(0.7, 0, -0.3, 0),
             new Shoot()
         );

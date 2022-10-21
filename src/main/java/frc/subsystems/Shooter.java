@@ -58,7 +58,7 @@ public class Shooter extends SubsystemBase {
 
         flywheelPID = new PIDController(0, 0, 0);
 
-        flywheelPID.setP(0.00003);
+        flywheelPID.setP(0.0003);
         flywheelPID.setI(0.00000);
         flywheelPID.setD(0.00000);
         flywheelMotor.setIdleMode(IdleMode.kCoast);
@@ -82,6 +82,11 @@ public class Shooter extends SubsystemBase {
         // SmartDashboard.putNumber("Turret power", power);
 
         turretMotor.set(power);
+    }
+
+    public double getTurretPosition() {
+        //-65 to 65 units
+        return turretEncoder.getPosition();
     }
 
     public RelativeEncoder getTurretEncoder() {
