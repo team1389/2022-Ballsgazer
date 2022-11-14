@@ -10,12 +10,12 @@ import edu.wpi.first.wpilibj2.command.CommandBase;
 import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
 import frc.robot.Robot;
 
-public class TurnTurret extends CommandBase {
+public class TurnTurretForTime extends CommandBase {
   /** Creates a new ManualAuto. */
   Timer timer;
   double timeout;
 
-  public TurnTurret(double timeout) {
+  public TurnTurretForTime(double timeout) {
     // Add your commands in the addCommands() call, e.g.
     // addCommands(new FooCommand(), new BarCommand());
 

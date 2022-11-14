@@ -11,13 +11,13 @@ import edu.wpi.first.wpilibj2.command.CommandBase;
 import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
 import frc.robot.Robot;
 
-public class TurnAngle extends CommandBase {
+public class TurnTurretToAngle extends CommandBase {
   Timer timer;
   double angle, timeout;
   double targetAngle;
   PIDController pid;
 
-  public TurnAngle(double timeout, double angle) {
+  public TurnTurretToAngle(double timeout, double angle) {
     // Add your commands in the addCommands() call, e.g.
     // addCommands(new FooCommand(), new BarCommand());
 

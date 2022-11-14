@@ -165,10 +165,10 @@ public class OI {
         manipRightDPadButton.whenPressed(new InstantCommand(() -> Robot.climber.toggleRightPiston()));
 
         // Press Manip LT --> Toggle automatic climber hold
-        manipLTrigger.toggleWhenActive(new HoldClimberInPlace(RightOrLeft.left));
+        //manipLTrigger.toggleWhenActive(new HoldClimberInPlace(RightOrLeft.left));
 
         // Press Manip RT --> Toggle automatic climber hold
-        manipLTrigger.toggleWhenActive(new HoldClimberInPlace(RightOrLeft.right));
+        //manipLTrigger.toggleWhenActive(new HoldClimberInPlace(RightOrLeft.right));
 
 
 

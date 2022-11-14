@@ -34,22 +34,37 @@ public class GetDistanceToTarget extends CommandBase {
 
     @Override
     public void execute() {
-        // Read the target's position from NetworkTables and calculate the distance
-        ty = NetworkTableInstance.getDefault().getTable("limelight").getEntry("ty").getDouble(3);
-        distanceToTarget = (TARGET_HEIGHT_INCHES - CAMERA_HEIGHT_INCHES)
-                / (Math.tan(Math.toRadians(CAMERA_ANGLE_DEGREES + ty)));
+        tv = NetworkTableInstance.getDefault().getTable("limelight").getEntry("tv").getDouble(0);
+
+        if(tv == 1) {
+            // Read the target's position from NetworkTables and calculate the distance
+            ty = NetworkTableInstance.getDefault().getTable("limelight").getEntry("ty").getDouble(3);
+            distanceToTarget = (TARGET_HEIGHT_INCHES - CAMERA_HEIGHT_INCHES)
+                    / (Math.tan(Math.toRadians(CAMERA_ANGLE_DEGREES + ty)));
 
 
-        // Calculate the targetRPM based off of the distance
-        targetRPM = 0.183455*Math.pow(Math.E, 0.0689839*distanceToTarget)+4304.84;
+            // Calculate the targetRPM based off of the distance
+            targetRPM = 0.183455*Math.pow(Math.E, 0.0689839*distanceToTarget)+4304.84;
 
-        // Limit it to the shooter's actual range
-        targetRPM = Math.min(targetRPM, 5640);
+            // Scale based on indexer deflection
+            targetRPM = targetRPM * getIndexerDeflection();
 
+            // Limit it to the shooter's actual range
+            targetRPM = Math.min(targetRPM, 5840);
+        }
+        else {
+            targetRPM = 5640; // Max RPM
+        }
 
         SmartDashboard.putNumber("Distance To Target", distanceToTarget);
         Robot.shooter.targetRPM = targetRPM;
         SmartDashboard.putNumber("Target_RPM", targetRPM);
+    }
+
+    public double getIndexerDeflection() {
+        double turretPosition = Robot.shooter.getTurretPosition();
+
+        return 1;
     }
 
     @Override
