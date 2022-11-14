@@ -45,7 +45,7 @@ public class OI {
        initControllers();
         
 
-        Robot.drivetrain.setDefaultCommand(new TeleOpDrive());
+        //Robot.drivetrain.setDefaultCommand(new TeleOpDrive());
         // Robot.shooter.setDefaultCommand(new ShootWithSensors());
         //Robot.shooter.setDefaultCommand(new Shoot());
         //Robot.intake.setDefaultCommand(new RunIntake());
@@ -115,7 +115,7 @@ public class OI {
         manipStartBtn = new JoystickButton(manipController, XboxController.Button.kStart.value);
         manipLTrigger= new JoystickButton(manipController, XboxController.Axis.kLeftTrigger.value);
         manipRTrigger = new JoystickButton(manipController, XboxController.Axis.kRightTrigger.value);
-        initManualClimber();
+        //initManualClimber();
     }
     
     public double getDriverLeftX() {
@@ -143,7 +143,7 @@ public class OI {
         return driveController.getLeftBumper();
     }
 
-    public void initManualClimber() {
+    /*public void initManualClimber() {
         // Hold Manip LB --> Extend left climber
         manipLBumper.whileHeld(new WinchClimber(LeftOrRight.left, true));
 
@@ -183,7 +183,7 @@ public class OI {
         //TwoButtonTrigger stageTwoTrigger = new TwoButtonTrigger(manipLTrigger, manipRTrigger);
         //stageTwoTrigger.whenActive(new StageTwoClimb());
 
-    }
+    }*/
     
 
 }
