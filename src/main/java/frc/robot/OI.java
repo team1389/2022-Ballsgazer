@@ -45,7 +45,7 @@ public class OI {
        initControllers();
         
 
-        //Robot.drivetrain.setDefaultCommand(new TeleOpDrive());
+        Robot.drivetrain.setDefaultCommand(new TeleOpDrive());
         // Robot.shooter.setDefaultCommand(new ShootWithSensors());
         //Robot.shooter.setDefaultCommand(new Shoot());
         //Robot.intake.setDefaultCommand(new RunIntake());

@@ -22,14 +22,14 @@ public class TeleOpDrive extends CommandBase {
         double y = Robot.oi.getDriverLeftY();
         double rotation = Robot.oi.getDriverRightX();
         double triggerValue = Robot.oi.getDriverLeftTrigger();
-        double slowFactor = 1;
+        double slowFactor = 0.25; // QUARTER SPEED FOR CUB SCOUTS
 
         // SmartDashboard.putNumber("x", x);
         // SmartDashboard.putNumber("y", y);
         // SmartDashboard.putNumber("rotation", rotation);
 
         if(triggerValue > 0.05) {
-            slowFactor = 0.5;
+            slowFactor = 0.125; // EIGTH SPEED FOR CUB SCOUTS
         }
 
         // Sets the swerve drive command using controller inputs
