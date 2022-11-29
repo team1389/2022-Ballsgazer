@@ -22,14 +22,14 @@ public class TeleOpDrive extends CommandBase {
         double y = Robot.oi.getDriverLeftY();
         double rotation = Robot.oi.getDriverRightX();
         double triggerValue = Robot.oi.getDriverLeftTrigger();
-        double slowFactor = 0.25; // QUARTER SPEED FOR CUB SCOUTS
+        double slowFactor = 1;
 
         // SmartDashboard.putNumber("x", x);
         // SmartDashboard.putNumber("y", y);
         // SmartDashboard.putNumber("rotation", rotation);
 
         if(triggerValue > 0.05) {
-            slowFactor = 0.125; // EIGTH SPEED FOR CUB SCOUTS
+            slowFactor = 0.5;
         }
 
         // Sets the swerve drive command using controller inputs
@@ -39,21 +39,6 @@ public class TeleOpDrive extends CommandBase {
         else {
             Robot.drivetrain.stopDrive();
         }
-
-        // SmartDashboard.putNumber("FL Angle", Robot.drivetrain.frontLeft.getState().angle.getDegrees());
-        // SmartDashboard.putNumber("FR Angle", Robot.drivetrain.frontRight.getState().angle.getDegrees());
-        // SmartDashboard.putNumber("BL Angle", Robot.drivetrain.backLeft.getState().angle.getDegrees());
-        // SmartDashboard.putNumber("BR Angle", Robot.drivetrain.backRight.getState().angle.getDegrees());
-
-        // SmartDashboard.putNumber("FL SPeed", Robot.drivetrain.frontLeft.getState().speedMetersPerSecond);
-        // SmartDashboard.putNumber("FR Speed", Robot.drivetrain.frontRight.getState().speedMetersPerSecond);
-        // SmartDashboard.putNumber("BL Speed", Robot.drivetrain.backLeft.getState().speedMetersPerSecond);
-        // SmartDashboard.putNumber("BR Sp", Robot.drivetrain.backRight.getState().speedMetersPerSecond);
-
-        // SmartDashboard.putNumber("FL Abs Angle", Robot.drivetrain.frontLeft.rotateAbsEncoder.getAbsolutePosition());
-        // SmartDashboard.putNumber("FR Abs Angle", Robot.drivetrain.frontRight.rotateAbsEncoder.getAbsolutePosition());
-        // SmartDashboard.putNumber("BL Abs Angle", Robot.drivetrain.backLeft.rotateAbsEncoder.getAbsolutePosition());
-        // SmartDashboard.putNumber("BR Abs Angle", Robot.drivetrain.backRight.rotateAbsEncoder.getAbsolutePosition());
 
         SmartDashboard.putBoolean("Field Oriented", Robot.drivetrain.fieldOriented);
 
