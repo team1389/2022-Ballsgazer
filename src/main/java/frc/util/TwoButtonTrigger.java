@@ -13,12 +13,5 @@ public class TwoButtonTrigger extends Trigger {
         this.second = second;
     }
 
-    /**
-     * Overrides get method returns true if both button returns true
-     */
-    @Override
-    public boolean get() {
-        return this.first.get() && this.second.get();
-    }
 
 }

@@ -49,10 +49,6 @@ public class Drivetrain extends SubsystemBase {
             backLeftLocation,
             backRightLocation
         );
-
-        //Instantiates the SwerveDriveOdometry object using the kinematics and Rotation2d object
-        odometry = new SwerveDriveOdometry(kinematics, new Rotation2d());
-        // SmartDashboard.putData("Field", field);
     }
 
     //Main TeleOp drive method
@@ -132,23 +128,12 @@ public class Drivetrain extends SubsystemBase {
         backRight.setPower(0);
     }
 
-    //Called periodically in autonomous to track the robot's position
-    public void updateOdometry() {
-        odometry.update(Rotation2d.fromDegrees(gyro.getAngle()),
-            frontLeft.getState(),
-            frontRight.getState(),
-            backLeft.getState(),
-            backRight.getState()
-        );
-    }
 
     public Pose2d getPose() {
         return odometry.getPoseMeters();
     }
 
-    public void setPose(Pose2d newPose) {
-        odometry.resetPosition(newPose, gyro.getRotation2d());
-    }
+    
 
     //Manually set the speed of the drivetrain
     public void setChassisSpeeds(ChassisSpeeds speeds) {

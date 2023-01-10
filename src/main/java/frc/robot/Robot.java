@@ -1,9 +1,5 @@
 package frc.robot;
 
-
-import com.pathplanner.lib.PathPlanner;
-import com.pathplanner.lib.PathPlannerTrajectory;
-
 import edu.wpi.first.cameraserver.CameraServer;
 import edu.wpi.first.networktables.NetworkTableInstance;
 import edu.wpi.first.util.sendable.Sendable;
@@ -74,7 +70,6 @@ public class Robot extends TimedRobot {
     @Override
     public void robotPeriodic() {
         CommandScheduler.getInstance().run();
-        drivetrain.updateOdometry();
         //Robot.drivetrain.coordinateAbsoluteEncoders();
     }
 
@@ -88,7 +83,6 @@ public class Robot extends TimedRobot {
         autoCommand = new ThreeBallAuto();
         CommandScheduler.getInstance().schedule(autoCommand);
 
-        PathPlannerTrajectory currentTrajectory = PathPlanner.loadPath("TwoBallAuto", 3, 2.5);
         //drivetrain.setPose(currentTrajectory.sample(0).poseMeters);
     }
 
