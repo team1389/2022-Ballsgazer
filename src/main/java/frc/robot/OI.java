@@ -43,12 +43,12 @@ public class OI {
        initControllers();
         
 
-        Robot.drivetrain.setDefaultCommand(new TeleOpDrive());
+        //Robot.drivetrain.setDefaultCommand(new TeleOpDrive());
         // Robot.shooter.setDefaultCommand(new ShootWithSensors());
         //Robot.shooter.setDefaultCommand(new Shoot());
         //Robot.intake.setDefaultCommand(new RunIntake());
         // Robot.climber.setDefaultCommand(new WinchClimber("right", false));
-        Robot.shooter.setDefaultCommand(new TurretTracking());
+        //Robot.shooter.setDefaultCommand(new TurretTracking());
         
         //runIndexer = new RunIndexer();
         //runIndexer.schedule();
@@ -114,6 +114,9 @@ public class OI {
         manipLTrigger= new JoystickButton(manipController, XboxController.Axis.kLeftTrigger.value);
         manipRTrigger = new JoystickButton(manipController, XboxController.Axis.kRightTrigger.value);
         //initManualClimber();
+        // Press DPad left --> Toggle left piston
+        manipLeftDPadButton = new DPadButton(manipController, Direction.LEFT);
+        manipLeftDPadButton.whenPressed(new InstantCommand(() -> Robot.climber.toggleLeftPiston()));
     }
     
     public double getDriverLeftX() {
