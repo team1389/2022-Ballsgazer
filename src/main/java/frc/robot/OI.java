@@ -93,7 +93,7 @@ public class OI {
 
         // Press Manip B button --> Extend or retract intake
         manipBBtn = new JoystickButton(manipController, XboxController.Button.kB.value);
-        manipBBtn.whenPressed(new ToggleIntakePistons());
+        manipBBtn.whenPressed(new InstantCommand(() -> Robot.climber.toggleLeftPiston()));
 
         //new InstantCommand(() -> Robot.intake.toggleIntakePistons())
         

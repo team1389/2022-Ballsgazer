@@ -9,10 +9,6 @@ import edu.wpi.first.wpilibj.*;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
 import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
-import frc.autos.OneBallAuto;
-import frc.autos.ThreeBallAuto;
-import frc.autos.TimedAuto;
-import frc.autos.TwoBallAuto;
 import frc.subsystems.*;
 import frc.util.SwerveTelemetry;
 
@@ -49,8 +45,8 @@ public class Robot extends TimedRobot {
     public void robotInit() {
         //phCompressor = new Compressor(RobotMap.PNEUMATICS_HUB, PneumaticsModuleType.REVPH);
         //pneumaticHub.enableCompressorDigital();
-        //pneumaticHub.enableCompressorHybrid(100, 120);
-        pneumaticHub.disableCompressor();
+        pneumaticHub.enableCompressorDigital();
+        //pneumaticHub.disableCompressor();
         // pneumaticHub.setSolenoids(1 << RobotMap.LEFT_CLIMBER_FORWARD_SOLENOID | 1 << RobotMap.LEFT_CLIMBER_REVERSE_SOLENOID | 1 << RobotMap.RIGHT_CLIMBER_FORWARD_SOLENOID | 1 << RobotMap.RIGHT_CLIMBER_REVERSE_SOLENOID |
         // 1 << RobotMap.RIGHT_INTAKE_FORWARD_SOLENOID | 1 << RobotMap., values);
         CameraServer.startAutomaticCapture();
@@ -77,12 +73,7 @@ public class Robot extends TimedRobot {
     @Override
     public void autonomousInit() {
         //Example of setting auto: Scheduler.getInstance().add(YOUR AUTO);
-        Robot.drivetrain.coordinateAbsoluteEncoders();
-        Robot.drivetrain.setGyro(0);
-
-        autoCommand = new ThreeBallAuto();
-        CommandScheduler.getInstance().schedule(autoCommand);
-
+       
         //drivetrain.setPose(currentTrajectory.sample(0).poseMeters);
     }
 
